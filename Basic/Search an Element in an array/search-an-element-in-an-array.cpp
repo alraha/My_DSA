@@ -17,7 +17,7 @@ class Solution{
         {
             if(arr[i]==X)
             {
-                return i;
+                return i;//m
             }
             
         }
