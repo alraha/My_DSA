@@ -28,7 +28,7 @@ public:
             second_large = arr[i];
         }
     }
-    if(second_large==-2147483648)
+    if(second_large==-2147483648) //m
 	    {
 	        return -1;
 	    }
