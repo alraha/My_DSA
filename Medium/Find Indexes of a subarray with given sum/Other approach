@@ -1,0 +1,7 @@
+Brute Force
+
+O(n^2)
+Take 1st element and run a loop upto (n-1) element
+then take 2nd element and run a loop upto (n-2) element
+
+https://www.youtube.com/watch?v=Ofl4KgFhLsM
