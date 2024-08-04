@@ -1,36 +1,27 @@
 //{ Driver Code Starts
-//Initial template for C++
+// Initial template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // } Driver Code Ends
-//User function template for C++
+// User function template for C++
 
-class Solution{   
-public:
-    int countZeroes(int arr[], int n) {
+class Solution {
+  public:
+    int countZeroes(vector<int> &arr) {
         // code here
-       
-        int low = 0, high = n - 1;
-    int firstZeroIndex = -1;
-
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-
-        if (arr[mid] == 0) {
-            firstZeroIndex = mid;
-            high = mid - 1;
-        } else {
-            low = mid + 1;
+        int cnt =1;
+        for(int i=0; i< arr.size()-1; i++)
+        
+        {
+            if (arr[i]== 0)
+            {
+                cnt+=1;
+            }
         }
-    }
-
-    if (firstZeroIndex == -1) {
-        return 0;
-    }
-
-    return n - firstZeroIndex;
+        return cnt;
     }
 };
 
@@ -38,19 +29,22 @@ public:
 int main() {
     int t;
     cin >> t;
+    cin.ignore();
     while (t--) {
-        int n;
-        cin >> n;
-        int arr[n];
-        for (int i = 0; i < n; i++) {
-            cin >> arr[i];
+        vector<int> arr;
+        string input;
+        getline(cin, input); // Read the entire line for the array elements
+        stringstream ss(input);
+        int number;
+        while (ss >> number) {
+            arr.push_back(number);
         }
+
         Solution ob;
-        auto ans = ob.countZeroes(arr, n);
-        cout << ans << "\n";
+        cout << ob.countZeroes(arr) << endl;
     }
+
     return 0;
 }
-
 
 // } Driver Code Ends
