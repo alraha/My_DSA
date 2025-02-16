@@ -6,10 +6,25 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+  int solve(int n,vector<int>& height,vector<int>& dp)
+  {
+      if(n==0)
+      {
+          return 0;
+      }
+      if(dp[n]!=-1) return dp[n];
+      int jum2 = INT_MAX;
+      int jum1=solve(n-1,height,dp)+abs (height[n-1]-height[n]);
+       if(n>1)
+        jum2 = solve(n-2, height,dp)+ abs(height[n]-height[n-2]);
+         return dp[n]=min(jum1, jum2);
+      
+  }
     int minCost(vector<int>& height) {
         // Code here
          int n = height.size();
       vector<int> dp (n,-1);
+      /*
       int prev1 = 0;
       int prev2 = -1;
       int minCost = INT_MAX;
@@ -24,6 +39,8 @@ class Solution {
         prev1 = minCost;
       }
       return prev1;
+      */
+      return solve(n-1,height,dp);
     }
 };
 
